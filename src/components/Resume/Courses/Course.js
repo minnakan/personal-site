@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Course = ({ data, last }) => (
+const Course = ({ data, last = false }) => (
   <li className="course-container">
     <a href={data.link}>
       <h4 className="course-number">{data.number}:</h4>

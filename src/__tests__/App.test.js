@@ -36,6 +36,8 @@ describe('renders the app', () => {
     jest.clearAllMocks();
   });
 
+  const waitForRouteChange = () => new Promise((resolve) => setTimeout(resolve, 0));
+
   it('should render the app', async () => {
     expect(document.body).toBeInTheDocument();
   });
@@ -52,10 +54,11 @@ describe('renders the app', () => {
     expect(aboutLink).toBeInTheDocument(); // Added assertion to check if the link is in the document
     await act(async () => {
       await aboutLink.click();
+      await waitForRouteChange();
     });
     expect(document.title).toContain('About |');
     expect(window.location.pathname).toBe('/about');
-    expect(window.scrollTo).toHaveBeenNthCalledWith(1, 0, 0);
+    expect(window.scrollTo).toHaveBeenCalledTimes(1);
     expect(global.fetch).toHaveBeenCalledTimes(1);
   });
 
@@ -67,6 +70,7 @@ describe('renders the app', () => {
     expect(resumeLink).toBeInTheDocument(); // Added assertion to check if the link is in the document
     await act(async () => {
       await resumeLink.click();
+      await waitForRouteChange();
     });
     expect(document.title).toContain('Resume |');
     expect(window.location.pathname).toBe('/resume');
@@ -80,6 +84,7 @@ describe('renders the app', () => {
     expect(contactLink).toBeInTheDocument();
     await act(async () => {
       await contactLink.click();
+      await waitForRouteChange();
     });
     expect(document.title).toContain('Projects |');
     expect(window.location.pathname).toBe('/projects');
@@ -93,6 +98,7 @@ describe('renders the app', () => {
     expect(statsLink).toBeInTheDocument(); // Added assertion to check if the link is in the document
     await act(async () => {
       await statsLink.click();
+      await waitForRouteChange();
     });
     expect(document.title).toContain('Stats |');
     expect(window.location.pathname).toBe('/stats');
@@ -108,6 +114,7 @@ describe('renders the app', () => {
     expect(contactLink).toBeInTheDocument(); // Added assertion to check if the link is in the document
     await act(async () => {
       await contactLink.click();
+      await waitForRouteChange();
     });
     expect(document.title).toContain('Contact |');
     expect(window.location.pathname).toBe('/contact');

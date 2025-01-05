@@ -7,7 +7,12 @@ import Navigation from '../components/Template/Navigation';
 import SideBar from '../components/Template/SideBar';
 import ScrollToTop from '../components/Template/ScrollToTop';
 
-const Main = (props) => (
+const Main = ({
+  children = null,
+  fullPage = false,
+  title = null,
+  description = "Minnakan's personal website.",
+}) => (
   <HelmetProvider>
     <Analytics />
     <ScrollToTop />
@@ -16,13 +21,13 @@ const Main = (props) => (
       defaultTitle="Minnakan Seral"
       defer={false}
     >
-      {props.title && <title>{props.title}</title>}
-      <meta name="description" content={props.description} />
+      {title && <title>{title}</title>}
+      <meta name="description" content={description} />
     </Helmet>
     <div id="wrapper">
       <Navigation />
-      <div id="main">{props.children}</div>
-      {props.fullPage ? null : <SideBar />}
+      <div id="main">{children}</div>
+      {fullPage ? null : <SideBar />}
     </div>
   </HelmetProvider>
 );
