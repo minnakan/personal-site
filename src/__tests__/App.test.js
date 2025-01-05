@@ -41,11 +41,11 @@ describe('renders the app', () => {
   });
 
   it('should render the title', async () => {
-    expect(document.title).toBe("Minnakan Seral");
+    expect(document.title).toBe('Minnakan Seral'); // Changed to single quotes
   });
 
   it('can navigate to /about', async () => {
-    expect.assertions(3); // Adjusted the number of assertions
+    expect.assertions(4); // Adjusted the number of assertions
     const aboutLink = document.querySelector(
       '#header > nav > ul > li:nth-child(1) > a',
     );
