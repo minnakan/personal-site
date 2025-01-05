@@ -20,11 +20,11 @@ const work = [
     endDate: '2023-07-31',
     summary: 'AI powered real-time 3D renderer to create interactive virtual tours for Real Estate Marketers.',
     highlights: [
-      'Developed and shipped Renderpub Studio,incorporating features like user authentication, 3D models import/export, and render pipelines',
-      'Implemented runtime JavaScript and python scripting functionalities to the application through interfaces and tackled key challenges with programming languages interoperability using JSON for data exchange',
-      'Developed various VR applications/prototypes for external stakeholders which included hand tracking and index pinch based functionality for third party clients using Meta’s interaction SDK for Unreal Engine',
-      'Used GPU and CPU profilers to assess timing characteristics of various application features subsequently improving performance of the 3D model importer, reducing memory usage and execution time by 2x',
-      'Responded to technical issues during live services and organized code reviews and scrum meetings, fixing bugs and improving user experience contributing to a successful product launch',
+      'Developed and shipped Renderpub Studio,incorporating features like user authentication, 3D models import/export, and render pipelines.',
+      'Implemented runtime JavaScript and python scripting functionalities to the application through interfaces and tackled key challenges with programming languages interoperability using JSON for data exchange.',
+      'Developed various VR applications/prototypes for external stakeholders which included hand tracking and index pinch based functionality for third party clients using Meta’s interaction SDK for Unreal Engine.',
+      'Used GPU and CPU profilers to assess timing characteristics of various application features subsequently improving performance of the 3D model importer, reducing memory usage and execution time by 2x.',
+      'Responded to technical issues during live services and organized code reviews and scrum meetings, fixing bugs and improving user experience contributing to a successful product launch.',
     ],
   },
   {

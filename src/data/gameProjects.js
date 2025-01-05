@@ -7,7 +7,7 @@ const data = [
     image: '/images/projects/CryptoRunnerFinal.png',
     date: '2024-12-31',
     desc:
-      'Endless runner game in Unreal Engine 5 featuring material effects, custom character retargeting, and a random obstacle spawning system. '
+      'Endless runner game in Unreal Engine 5 featuring material effects, custom character retargeting, and a random obstacle spawning system.'
       + 'Includes a high-score tracker and power-ups.',
   },
   {
@@ -17,7 +17,7 @@ const data = [
     image: '/images/projects/TPS_Final.png',
     date: '2024-09-20',
     desc:
-      'Third-person game demo in Unreal Engine 5, featuring smooth character animations using motion matching and IK re-targeting. '
+      'Third-person game demo in Unreal Engine 5, featuring smooth character animations using motion matching and IK re-targeting.'
 + 'Implemented dynamic enemy AI behavior with Behavior Trees and state-driven animations. Enhanced gameplay with realistic bullet impact visuals.',
   },
   {
@@ -27,8 +27,8 @@ const data = [
     image: '/images/projects/DF_Final.png',
     date: '2024-11-25',
     desc:
-      'Air combat game in Unity with smooth and intuitive mouse flight controls for precise maneuvers. '
-      + 'AI-controlled jets with strategic behavior, such as outmaneuvering and combat positioning. '
+      'Air combat game in Unity with smooth and intuitive mouse flight controls for precise maneuvers.'
+      + 'AI-controlled jets with strategic behavior, such as outmaneuvering and combat positioning.'
       + 'Procedural terrain generation system with Level of Detail (LOD) optimization for efficient rendering.',
   },
   {
@@ -48,7 +48,7 @@ const data = [
     image: '/images/projects/PTG_Final.png',
     date: '2024-11-14',
     desc:
-      'Diverse terrain generation techniques, including Fault Formation, Midpoint Displacement, and Perlin Noise, to create realistic and continuous landscapes. '
+      'Diverse terrain generation techniques, including Fault Formation, Midpoint Displacement, and Perlin Noise, to create realistic and continuous landscapes.'
       + 'Includes texturing and lighting systems, featuring region-based procedural textures, slope lighting, and height-based lighting.',
   },
   {
@@ -58,8 +58,8 @@ const data = [
     image: '/images/projects/OGLGames_Final.png',
     date: '2020-12-31',
     desc:
-      '3D FPS game(1) and a spline-based pickup game(2) using OpenGL and C++ with GLSL shaders. '
-      + 'Physics system inplemented and primitives and 3D models rendered using element buffers. '
+      '3D FPS game(1) and a spline-based pickup game(2) using OpenGL and C++ with GLSL shaders.'
+      + 'Physics system inplemented and primitives and 3D models rendered using element buffers.'
       + 'Has orthographic and perspective camera views with forward rendering techniques.',
   },
   {
@@ -70,7 +70,7 @@ const data = [
     date: '2020-1-31',
     desc:
       ''
-      + 'Sound effects and projectile mechanics for enhanced gameplay. '
+      + 'Sound effects and projectile mechanics for enhanced gameplay.'
       + 'Multiple levels featuring varying enemy types for a diverse and engaging experience.',
   },
 ];
