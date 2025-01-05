@@ -54,7 +54,7 @@ describe('renders the app', () => {
     const aboutLink = document.querySelector(
       '#header > nav > ul > li:nth-child(1) > a',
     );
-    expect(aboutLink).toBeInTheDocument(); // Added assertion to check if the link is in the document
+    expect(aboutLink).toBeInTheDocument();
     await act(async () => {
       await aboutLink.click();
       await waitForRouteChange();
@@ -66,11 +66,11 @@ describe('renders the app', () => {
   });
 
   it('can navigate to /resume', async () => {
-    expect.assertions(3); // Adjusted the number of assertions
+    expect.assertions(3); 
     const resumeLink = document.querySelector(
       '#header > nav > ul > li:nth-child(2) > a',
     );
-    expect(resumeLink).toBeInTheDocument(); // Added assertion to check if the link is in the document
+    expect(resumeLink).toBeInTheDocument();
     await act(async () => {
       await resumeLink.click();
       await waitForRouteChange();
@@ -98,7 +98,7 @@ describe('renders the app', () => {
     const contactLink = document.querySelector(
       '#header > nav > ul > li:nth-child(5) > a',
     );
-    expect(contactLink).toBeInTheDocument(); // Added assertion to check if the link is in the document
+    expect(contactLink).toBeInTheDocument();
     await act(async () => {
       await contactLink.click();
       await waitForRouteChange();
