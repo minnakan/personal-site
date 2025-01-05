@@ -55,7 +55,7 @@ const data = [
       + 'Shows training progress through episodic returns with different smoothing levels.',
   },
   {
-    title: 'CARLA: Enhancing Autonomous Navigation with V2V LiDAR Fusion',
+    title: 'CARLA: V2V LiDAR Fusion',
     subtitle: 'Improving autonomous driving through collaborative V2V perception and trajectory planning',
     link: 'https://github.com/REGATTE/Collaborative-Vehicle-2-Vehicle-System',
     image: '/images/projects/CollaborativePerception.png',
@@ -66,13 +66,13 @@ const data = [
       + 'Demonstrates the effectiveness of V2V communication for real-time collaborative perception in complex urban environments.',
   },
   {
-    title: 'A Deep Learning Approach for Network Intrusion Detection System',
+    title: 'Deep Learning Network Intrusion Detection',
     subtitle: 'Lightweight and compact feature vector-based network security solution',
     link: 'https://colab.research.google.com/drive/1ITDXMMETekNNAXHCTKUeHcT2EHpz4bC1?usp=sharing',
     image: '/images/projects/NetworkIntrusionDetection.png',
     date: '2024-12-31',
     desc:
-      'An innovative deep learning-based Intrusion Detection System (IDS) utilizing a lightweight and compact feature vector set. '
+      'A deep learning-based Intrusion Detection System (IDS) utilizing a lightweight and compact feature vector set. '
       + 'Implements a Feed-Forward Neural Network (FFNN) to enhance detection accuracy for network threats while reducing computational overhead. '
       + 'Achieved superior accuracy on UNSW-NB15 and NSL-KDD datasets compared to traditional approaches.',
   },
