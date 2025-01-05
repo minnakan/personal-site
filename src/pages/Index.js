@@ -6,34 +6,52 @@ import Main from '../layouts/Main';
 const Index = () => (
   <Main
     description={
-      "Michael D'Angelo's personal website. New York based Stanford ICME graduate, "
-      + 'VP of Engineering at Smile Identity, co-founder of Arthena and Matroid, and YC Alumni.'
+      "Minnakan's personal website. Computer Enginnering graduate from UC Riverside, "
+      + 'Unreal Engine Developer with specialization in game development, 3D graphics, machine learning.'
     }
   >
     <article className="post" id="index">
       <header>
         <div className="title">
           <h2>
-            <Link to="/">About this site</Link>
+            <Link to="/">Where Code Meets Imagination</Link>
           </h2>
-          <p>
-            A beautiful, responsive, statically-generated, react application
-            written with modern Javascript.
-          </p>
         </div>
       </header>
       <p>
-        {' '}
-        Welcome to my website. Please feel free to read more{' '}
-        <Link to="/about">about me</Link>, or you can check out my{' '}
-        <Link to="/resume">resume</Link>, <Link to="/projects">projects</Link>,{' '}
-        view <Link to="/stats">site statistics</Link>, or{' '}
-        <Link to="/contact">contact</Link> me.
+        Hi, I&apos;m Minnakan, a Computer Engineering graduate from
+        <a href="https://www.ucr.edu/"> UC Riverside</a> with 2 years of professional experience as an
+        Unreal Engine Developer. My journey combines a strong technical background and a passion for
+        creating innovative and immersive experiences in game development, 3D graphics,
+        and machine learning.
       </p>
       <p>
-        {' '}
-        Source available{' '}
-        <a href="https://github.com/mldangelo/personal-site">here</a>.
+        Over the years, I have contributed to a variety of impactful projects, including developing
+        interactive 3D applications, procedural terrain generation systems, and AI-driven gameplay
+        mechanics.
+        My expertise spans C++, Python, OpenGL, and TensorFlow, allowing me to build efficient,
+        high-performance
+        solutions tailored to complex challenges in both gaming and simulation domains.
+      </p>
+      <p>
+        As an Unreal Engine Developer, I developed and launched a 3D rendering application using
+        UE4 blueprint
+        scripting and C++, implementing features like user authentication, 3D model
+        import, and optimized
+        pipelines for rendering. I also developed various VR multiplayer applications
+        and prototypes for external
+        stakeholders, including hand tracking and racing wheel functionality for third-party
+        clients using Meta’s Interaction SDK for Unreal Engine.
+        I take pride in crafting experiences that push the boundaries of
+        interactivity and visual
+        fidelity.
+      </p>
+      <p>
+        When I&apos;m not coding or debugging, I&apos;m deeply invested in exploring advancements
+        in machine learning
+        and how they intersect with real-time rendering and gaming technologies. My
+        goal is to leverage my
+        skills to create transformative technologies that redefine user engagement and immersion.
       </p>
     </article>
   </Main>

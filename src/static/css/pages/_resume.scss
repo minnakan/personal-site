@@ -136,3 +136,21 @@
     display: block;
   }
 }
+
+.projects-container {
+  .project {
+    margin: 1em 0;
+    font-size: 0.9em;
+    list-style-type: disc;
+    list-style-position: inside;
+
+    h3 {
+      display: inline; /* Ensure title appears on the same line as the bullet point */
+      margin-bottom: 0.2em; /* Reduce space between title and description */
+    }
+
+    p {
+      margin-left: 1.5em; /* Indent the entire description block */
+    }
+  }
+}

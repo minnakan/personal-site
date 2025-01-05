@@ -1,15 +1,15 @@
 const degrees = [
   {
-    school: 'Stanford University',
-    degree: 'M.S. Computational and Mathematical Engineering',
-    link: 'https://stanford.edu',
-    year: 2016,
+    school: 'Univrsty of California, Riverside',
+    degree: 'M.S. Computer Engineering',
+    link: 'https://www.ce.ucr.edu/admissions/graduate/overview',
+    year: 2025,
   },
   {
-    school: 'University at Buffalo',
-    degree: 'B.S. Electrical Engineering, Computer Engineering',
-    link: 'https://buffalo.edu',
-    year: 2012,
+    school: 'City, University of London',
+    degree: 'BSc(Hons) Computer Science, Games Technology',
+    link: 'https://www.city.ac.uk/prospective-students/courses/undergraduate/computer-science-with-games-technology',
+    year: 2020,
   },
 ];
 
