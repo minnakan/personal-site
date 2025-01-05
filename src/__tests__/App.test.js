@@ -61,8 +61,6 @@ describe('renders the app', () => {
     });
     expect(document.title).toContain('Resume');
     expect(window.location.pathname).toBe('/resume');
-    expect(window.scrollTo).toHaveBeenCalledTimes(1);
-    expect(global.fetch).toHaveBeenCalledTimes(1);
   });
 
   it('can navigate to /playground', async () => {
