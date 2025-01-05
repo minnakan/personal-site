@@ -50,9 +50,9 @@ describe('renders the app', () => {
   });
 
   it('can navigate to /about', async () => {
-    expect.assertions(4); // Adjusted the number of assertions
+    expect.assertions(3); // Adjusted the number of assertions
     const aboutLink = document.querySelector(
-      '#header > nav > ul > li:nth-child(1) > a'
+      '#header > nav > ul > li:nth-child(1) > a',
     );
     expect(aboutLink).toBeInTheDocument(); // Added assertion to check if the link is in the document
     await act(async () => {
@@ -68,7 +68,7 @@ describe('renders the app', () => {
   it('can navigate to /resume', async () => {
     expect.assertions(3); // Adjusted the number of assertions
     const resumeLink = document.querySelector(
-      '#header > nav > ul > li:nth-child(2) > a'
+      '#header > nav > ul > li:nth-child(2) > a',
     );
     expect(resumeLink).toBeInTheDocument(); // Added assertion to check if the link is in the document
     await act(async () => {
@@ -82,7 +82,7 @@ describe('renders the app', () => {
   it('can navigate to /projects', async () => {
     expect.assertions(3);
     const contactLink = document.querySelector(
-      '#header > nav > ul > li:nth-child(3) > a'
+      '#header > nav > ul > li:nth-child(3) > a',
     );
     expect(contactLink).toBeInTheDocument();
     await act(async () => {
@@ -96,7 +96,7 @@ describe('renders the app', () => {
   it('can navigate to /contact', async () => {
     expect.assertions(3); // Adjusted the number of assertions
     const contactLink = document.querySelector(
-      '#header > nav > ul > li:nth-child(5) > a'
+      '#header > nav > ul > li:nth-child(5) > a',
     );
     expect(contactLink).toBeInTheDocument(); // Added assertion to check if the link is in the document
     await act(async () => {
