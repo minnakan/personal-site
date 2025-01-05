@@ -36,15 +36,13 @@ Main.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
-  ]),
-  fullPage: PropTypes.bool,
+  ]).isRequired,
+  fullPage: PropTypes.bool.isRequired,
   title: PropTypes.string,
   description: PropTypes.string,
 };
 
 Main.defaultProps = {
-  children: null,
-  fullPage: false,
   title: null,
   description: "Minnakan's personal website.",
 };

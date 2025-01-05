@@ -49,7 +49,7 @@ describe('renders the app', () => {
     expect(document.title).toBe('Minnakan Seral'); // Changed to single quotes
   });
 
-  it('can navigate to /about', async () => {
+  it('can navigate to /resume', async () => {
     expect.assertions(3); // Adjusted the number of assertions
     const aboutLink = document.querySelector(
       '#header > nav > ul > li:nth-child(1) > a',
@@ -59,13 +59,13 @@ describe('renders the app', () => {
       await aboutLink.click();
       await waitForRouteChange();
     });
-    expect(document.title).toContain('About |');
-    expect(window.location.pathname).toBe('/about');
+    expect(document.title).toContain('Resume');
+    expect(window.location.pathname).toBe('/resume');
     expect(window.scrollTo).toHaveBeenCalledTimes(1);
     expect(global.fetch).toHaveBeenCalledTimes(1);
   });
 
-  it('can navigate to /resume', async () => {
+  it('can navigate to /playground', async () => {
     expect.assertions(3);
     const resumeLink = document.querySelector(
       '#header > nav > ul > li:nth-child(2) > a',
@@ -75,8 +75,8 @@ describe('renders the app', () => {
       await resumeLink.click();
       await waitForRouteChange();
     });
-    expect(document.title).toContain('Resume |');
-    expect(window.location.pathname).toBe('/resume');
+    expect(document.title).toContain('Playground |');
+    expect(window.location.pathname).toBe('/playground');
   });
 
   it('can navigate to /projects', async () => {
@@ -96,7 +96,7 @@ describe('renders the app', () => {
   it('can navigate to /contact', async () => {
     expect.assertions(3); // Adjusted the number of assertions
     const contactLink = document.querySelector(
-      '#header > nav > ul > li:nth-child(5) > a',
+      '#header > nav > ul > li:nth-child(4) > a',
     );
     expect(contactLink).toBeInTheDocument();
     await act(async () => {
