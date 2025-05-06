@@ -22,7 +22,7 @@ const work = [
     highlights: [
       'Shipped a real-time archviz application using Unreal Engine 4 with custom shaders, UMG UI, and optimized render/export pipelines using an OpenCV plugin.',
       'Built multiplayer and VR prototypes with Meta SDKs and AWS Gamelift, driving a 24% increase in client revenue through performance-focused solutions.',
-      'Resolved 50+ live-service bugs via RenderDoc and Unreal Insights; led code reviews and authored internal tooling documentation, reducing post-launch crashes by 30%.'
+      'Resolved 50+ live-service bugs via RenderDoc and Unreal Insights; led code reviews and authored internal tooling documentation, reducing post-launch crashes by 30%.',
     ],
   },
   {
