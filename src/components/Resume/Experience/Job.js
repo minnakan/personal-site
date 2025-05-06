@@ -9,12 +9,11 @@ const Job = ({
   },
 }) => (
   <article className="jobs-container">
-    <header>
+    <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <h4>
         <a href={url}>{name}</a> - {position}
       </h4>
-      <p className="daterange">
-        {' '}
+      <p className="daterange" style={{ margin: 0 }}>
         {dayjs(startDate).format('MMMM YYYY')} -{' '}
         {endDate ? dayjs(endDate).format('MMMM YYYY') : 'PRESENT'}
       </p>

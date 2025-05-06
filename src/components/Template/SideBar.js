@@ -20,13 +20,6 @@ const SideBar = () => (
     </section>
 
     <section className="blurb">
-      <h2>About</h2>
-      <p>
-        Hi, I&apos;m Minnakan, a Computer Engineering graduate from
-        <a href="https://www.ucr.edu/"> UC Riverside</a> with 2 years of experience
-        as an Unreal Engine Developer. I specialize in game development, 3D graphics,
-        machine learning, and delivering optimized solutions for immersive experiences.
-      </p>
       <ul className="actions">
         <li>
           {!window.location.pathname.includes('/resume') ? (
