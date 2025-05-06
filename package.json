@@ -8,13 +8,13 @@
     "url": "https://github.com/minnakan/personal-site.git"
   },
   "engines": {
-    "node": ">=16.x"
+    "node": ">=20.x"
   },
   "scripts": {
     "analyze": "npm run build && source-map-explorer build/static/js/*.chunk.js",
     "build": "rimraf ./build && react-scripts build",
     "lint": "eslint \"**/*.js\"",
-    "predeploy": "npm run build && react-snap",
+    "predeploy": "npm run build",
     "start": "react-scripts start",
     "test": "npx jest"
   },
@@ -38,6 +38,7 @@
     "@babel/eslint-parser": "^7.25.9",
     "@babel/preset-env": "^7.25.3",
     "@babel/preset-react": "^7.25.9",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
@@ -47,8 +48,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-react": "^7.37.2",
-    "react-snap": "^1.23.0",
-    "rimraf": "^6.0.1",
+    "rimraf": "^5.0.5",
     "sass": "^1.81.0",
     "source-map-explorer": "^2.5.3"
   },
