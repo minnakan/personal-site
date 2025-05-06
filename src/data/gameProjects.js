@@ -8,7 +8,7 @@ const data = [
     date: '2025-05-06',
     desc: 
       'Efficient implementation of Craig Reynold\'s Boids algorithm using Unity\'s Entity Component System (ECS) and Burst compiler for simulating thousands of agents.'
-      + 'Features spatial partitioning, vectorized math, and persistent memory management to achieve high performance across multiple CPU cores.'
+      + 'Features spatial partitioning, vectorized math, and persistent memory management to achieve high performance across multiple CPU cores.',
   },
   {
     title: 'Crypto Runner: Endless Game',
