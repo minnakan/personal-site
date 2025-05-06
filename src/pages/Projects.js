@@ -6,7 +6,7 @@ import Main from '../layouts/Main';
 import data from '../data/otherProjects';
 
 const Projects = () => (
-  <Main title="Projects" description="Learn about Michael D'Angelo's projects.">
+  <Main title="Projects" description="Learn about Minnakan's projects.">
     <article className="post" id="projects">
       <header>
         <div className="title">

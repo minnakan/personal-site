@@ -1,6 +1,16 @@
 // TODO Add a couple lines about each project
 const data = [
   {
+    "title": "Boids Simulation Unity - DOTS, ECS",
+    "subtitle": "Optimized flocking algorithm using Unity DOTS and Burst compilation",
+    "link": "https://github.com/minnakan/Boids",
+    "image": "/images/projects/BoidsCover.png",
+    "date": "2025-05-06",
+    "desc": 
+      "Efficient implementation of Craig Reynolds' Boids algorithm using Unity's Entity Component System (ECS) and Burst compiler for simulating thousands of agents."
+      + "Features spatial partitioning, vectorized math, and persistent memory management to achieve high performance across multiple CPU cores."
+  },
+  {
     title: 'Crypto Runner: Endless Game',
     subtitle: 'An endless runner game with a unique crypto-themed aesthetic',
     link: 'https://github.com/minnakan/CryptoRunner_UE5',
