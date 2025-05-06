@@ -10,20 +10,53 @@
 
       gtag('config', 'G-6TS1GTF36E');
     </script>
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+    <script>
+      // SPA redirect for GitHub Pages
+      // Check if we have a saved path from a 404 redirect
+      (function() {
+        var savedPath = sessionStorage.getItem('spa-path');
+        if (savedPath) {
+          // Clear the saved path
+          sessionStorage.removeItem('spa-path');
+          // Apply the path to the current URL
+          window.history.replaceState(null, null, savedPath);
         }
-      }(window.location))
+      })();
+      // https://github.com/rafgraph/spa-github-pages
+      (function() {
+        // Execute only once to prevent recursive issues
+        if (window.redirectProcessed) return;
+        window.redirectProcessed = true;
+        
+        // Check if we have a redirect URL (starts with ?/)
+        if (location.search.startsWith('?/')) {
+          // Get the path after ?/
+          var pathSegment = location.search.slice(2);
+          
+          // Split to separate path from query params
+          var parts = pathSegment.split('&');
+          var path = parts[0] || '';
+          
+          // Clean up path - normalize multiple slashes to single slash
+          path = path.replace(/\/+/g, '/');
+          
+          // Process any query parameters
+          var queryParams = [];
+          if (parts.length > 1) {
+            for (var i = 1; i < parts.length; i++) {
+              // Replace ~and~ with & in query parameters
+              queryParams.push(parts[i].replace(/~and~/g, '&'));
+            }
+          }
+          
+          // Build the clean URL
+          var queryString = queryParams.length > 0 ? '?' + queryParams.join('&') : '';
+          var newUrl = '/' + path + queryString + location.hash;
+          
+          // Apply the clean URL
+          window.history.replaceState(null, null, newUrl);
+        }
+      })();
     </script>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
