@@ -83,8 +83,32 @@
   }
 }
 
-.daterange {
-  margin-bottom: 0.2em;
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.5em;
+
+  h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.85em;
+  }
+
+  .daterange {
+    font-size: 0.85em;
+    font-weight: 400;
+    margin-left: 2rem;
+    white-space: nowrap;
+    letter-spacing: 0.15em;
+    margin-bottom: 0;
+    color: #888;
+  }
 }
 
 .degree-container {

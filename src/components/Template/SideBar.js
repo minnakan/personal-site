@@ -19,22 +19,6 @@ const SideBar = () => (
       </header>
     </section>
 
-    <section className="blurb">
-      <ul className="actions">
-        <li>
-          {!window.location.pathname.includes('/resume') ? (
-            <Link to="/resume" className="button">
-              Learn More
-            </Link>
-          ) : (
-            <Link to="/" className="button">
-              About Me
-            </Link>
-          )}
-        </li>
-      </ul>
-    </section>
-
     <section id="footer">
       <ContactIcons />
       <p className="copyright">

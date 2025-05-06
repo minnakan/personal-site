@@ -19,20 +19,15 @@ const Index = () => (
         </div>
       </header>
       <p>
-        I&apos;m Minnakan, a Computer Engineering graduate from
-        <a href="https://www.ucr.edu/"> UC Riverside</a> with a focus on real-time systems,
-        interactive 3D applications, and simulation tools. I specialize in building immersive
-        experiences that combine technical depth with creative design.
+        I&apos;m a C++ developer specializing in simulation tools, 3D graphics, and interactive
+        software. I&apos;ve worked with Unreal Engine and Unity to develop interactive applications
+        and optimize rendering pipelines for high-performance visual experiences. I&apos;m also
+        passionate about machine learning and enjoy exploring how it can enhance interactivity,
+        automation, and real-time decision-making in graphics and simulation.
       </p>
       <p>
-        My work spans high-fidelity rendering tools, VR multiplayer experiences, and performance
-        optimization using C++, Blueprints, and Unreal Engine. I focus on crafting interactive
-        solutions that deliver both visual impact and runtime efficiency.
-      </p>
-      <p>
-        I&apos;m also passionate about the intersection of machine learning and graphics,
-        continually exploring how emerging technologies can enhance real-time experiences in
-        games and simulations.
+        Whether it&apos;s building tools, crafting gameplay systems, or solving complex visual
+        challenges, I&apos;m always looking to push what&apos;s possible in interactive development.
       </p>
     </article>
   </Main>

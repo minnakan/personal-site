@@ -27,7 +27,7 @@ const work = [
   },
   {
     name: 'Brain Game Center (UCR)',
-    position: 'Unity Programming Intern',
+    position: 'Unity Dev Intern',
     url: 'https://braingamecenter.ucr.edu/',
     startDate: '2024-03-05',
     endDate: '2024-06-30',
