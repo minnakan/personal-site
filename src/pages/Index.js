@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import TrackedLink from '../components/TrackedLink';
 import Main from '../layouts/Main';
 
 const Index = () => (
@@ -14,7 +13,7 @@ const Index = () => (
       <header>
         <div className="title">
           <h2>
-            <Link to="/">Rendering Ideas into Action</Link>
+            <TrackedLink to="/">Rendering Ideas into Action</TrackedLink>
           </h2>
         </div>
       </header>
