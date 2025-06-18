@@ -1,6 +1,15 @@
 // TODO Add a couple lines about each project
 const data = [
   {
+    title: 'Position Based Fluids - OpenGL GPU Simulation',
+    subtitle: 'Real-time fluid simulation using Position-Based Dynamics and OpenGL compute shaders',
+    link: 'https://github.com/minnakan/PositionBasedFluids',
+    image: '/images/projects/PBF_Image.png', 
+    date: '2025-06-17',
+    desc: 'GPU-accelerated fluid simulation based on Macklin & Müller’s Position-Based Fluids paper. Implements SPH-based density estimation, vorticity confinement, and viscosity via OpenGL compute shaders.'
+      + 'Features a fully parallel simulation pipeline, spatial hashing for neighbor search, and real-time rendering of thousands of particles with interactive camera controls.',
+  },
+  {
     title: 'Boids Simulation Unity - DOTS, ECS',
     subtitle: 'Optimized flocking algorithm using Unity DOTS and Burst compilation',
     link: 'https://github.com/minnakan/Boids',
@@ -30,7 +39,7 @@ const data = [
 + 'Implemented dynamic enemy AI behavior with Behavior Trees and state-driven animations. Enhanced gameplay with realistic bullet impact visuals.',
   },
   {
-    title: 'DogFlight - Air Combat Game',
+    title: 'Air Combat - Unity',
     subtitle: 'Air combat game featuring intuitive flight controls, AI jets, and procedural terrain',
     link: 'https://github.com/minnakan/FlyAndShoot',
     image: '/images/projects/DF_Final.png',
@@ -59,28 +68,6 @@ const data = [
     desc:
       'Diverse terrain generation techniques, including Fault Formation, Midpoint Displacement, and Perlin Noise, to create realistic and continuous landscapes.'
       + 'Includes texturing and lighting systems, featuring region-based procedural textures, slope lighting, and height-based lighting.',
-  },
-  {
-    title: 'Pyramid Defense and Space Run',
-    subtitle: '3D FPS game and spline-based pickup game developed with OpenGL and C++',
-    link: 'https://github.com/minnakan/SpaceRunProject',
-    image: '/images/projects/OGLGames_Final.png',
-    date: '2020-12-31',
-    desc:
-      '3D FPS game(1) and a spline-based pickup game(2) using OpenGL and C++ with GLSL shaders.'
-      + 'Physics system inplemented and primitives and 3D models rendered using element buffers.'
-      + 'Has orthographic and perspective camera views with forward rendering techniques.',
-  },
-  {
-    title: 'Pirate Platformer',
-    subtitle: '2D sprite-based platformer developed with Java and JBox2D',
-    link: 'https://github.com/minnakan/Jbox2d-platformer',
-    image: '/images/projects/JBox_Final.png',
-    date: '2020-1-31',
-    desc:
-      ''
-      + 'Sound effects and projectile mechanics for enhanced gameplay.'
-      + 'Multiple levels featuring varying enemy types for a diverse and engaging experience.',
   },
 ];
 
