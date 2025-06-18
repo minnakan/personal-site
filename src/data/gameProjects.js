@@ -4,7 +4,7 @@ const data = [
     title: 'Position Based Fluids - OpenGL GPU Simulation',
     subtitle: 'Real-time fluid simulation using Position-Based Dynamics and OpenGL compute shaders',
     link: 'https://github.com/minnakan/PositionBasedFluids',
-    image: '/images/projects/PBF_Image.png', 
+    image: '/images/projects/PBF_Image.png',
     date: '2025-06-17',
     desc: 'GPU-accelerated fluid simulation based on Macklin & Müller’s Position-Based Fluids paper. Implements SPH-based density estimation, vorticity confinement, and viscosity via OpenGL compute shaders.'
       + 'Features a fully parallel simulation pipeline, spatial hashing for neighbor search, and real-time rendering of thousands of particles with interactive camera controls.',
