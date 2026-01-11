@@ -4,8 +4,9 @@ const config = {
     '^.+\\.(js|jsx)$': ['babel-jest', { presets: ['@babel/preset-env', '@babel/preset-react'] }],
   },
   moduleNameMapper: {
-    '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
+    '^.+\\.css$': 'identity-obj-proxy',
     '^.+\\.md$': '<rootDir>/node_modules/markdown-to-jsx',
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
 };
 
