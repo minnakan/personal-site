@@ -1,5 +1,6 @@
 import React from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import { Button } from '@/components/ui/button';
 
 const SocialLinks = () => {

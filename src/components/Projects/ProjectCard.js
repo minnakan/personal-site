@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { MoveUpRight } from 'lucide-react';
 
 const ProjectCard = ({ project }) => (
@@ -43,5 +44,16 @@ const ProjectCard = ({ project }) => (
     </div>
   </a>
 );
+
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    link: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    description: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+};
 
 export default ProjectCard;
