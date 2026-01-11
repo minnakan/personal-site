@@ -64,7 +64,7 @@ const Hero = () => {
   const typedSkill = useTypewriter(skills);
 
   return (
-    <section className="min-h-[70vh] flex items-center px-6 md:px-12 py-20">
+    <section className="relative z-10 min-h-[70vh] flex items-center px-6 md:px-12 py-20">
       <div className="flex flex-col md:flex-row gap-16 md:gap-24 items-start max-w-6xl w-full mx-auto">
 
         {/* Left Column: Identity & Socials */}
@@ -72,7 +72,7 @@ const Hero = () => {
           <img
             src="/images/me.jpg"
             alt="Minnakan Seral"
-            className="h-32 w-32 md:h-40 md:w-40 rounded-full object-cover ring-2 ring-white/20"
+            className="h-32 w-32 md:h-40 md:w-40 rounded-full object-cover ring-2 ring-white/20 animate-glow"
           />
           <div className="flex flex-col gap-3">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
