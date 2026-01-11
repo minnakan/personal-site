@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Deep Void Palette - Default to dark theme */
+    --background: 0 0% 4%;        /* neutral-950 / #0a0a0a */
+    --foreground: 0 0% 98%;        /* neutral-50 / #fafafa */
+    --card: 0 0% 9%;               /* neutral-900/50 */
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 15%;         /* neutral-800 */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 64%;  /* neutral-400 */
+    --accent: 239 84% 67%;         /* indigo-500 for accents */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;            /* neutral-800 */
+    --input: 0 0% 15%;
+    --ring: 0 0% 32%;              /* neutral-600 */
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
