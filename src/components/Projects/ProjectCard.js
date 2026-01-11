@@ -9,9 +9,9 @@ const ProjectCard = ({ project }) => {
       rel="noopener noreferrer"
       className="block h-full group"
     >
-      <div className="glass-card h-full flex flex-col">
+      <div className="glass-card h-full flex flex-col overflow-hidden">
         {/* Image Area */}
-        <div className="relative aspect-video overflow-hidden rounded-t-[1rem] bg-[#141414]">
+        <div className="relative aspect-video overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
