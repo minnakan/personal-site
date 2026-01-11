@@ -9,15 +9,14 @@ const ProjectCard = ({ project }) => {
       rel="noopener noreferrer"
       className="block h-full group"
     >
-      <div className="glass-card h-full flex flex-col overflow-hidden">
+      <div className="glass-card h-full flex flex-col">
         {/* Image Area */}
-        <div className="relative aspect-video overflow-hidden bg-[#141414]">
+        <div className="relative aspect-video overflow-hidden rounded-t-[1rem] bg-[#141414]">
           <img
             src={project.image}
             alt={project.title}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover block transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           <MoveUpRight className="absolute top-4 right-4 w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-all duration-300" />
         </div>
 
