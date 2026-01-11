@@ -19,13 +19,11 @@ const useTypewriter = (words, typingSpeed = 100, deletingSpeed = 50, pauseDurati
         } else {
           setTimeout(() => setIsDeleting(true), pauseDuration);
         }
+      } else if (displayText.length > 0) {
+        setDisplayText(currentWord.slice(0, displayText.length - 1));
       } else {
-        if (displayText.length > 0) {
-          setDisplayText(currentWord.slice(0, displayText.length - 1));
-        } else {
-          setIsDeleting(false);
-          setWordIndex((prev) => (prev + 1) % words.length);
-        }
+        setIsDeleting(false);
+        setWordIndex((prev) => (prev + 1) % words.length);
       }
     }, isDeleting ? deletingSpeed : typingSpeed);
 
@@ -50,7 +48,7 @@ const calculateDuration = (startDate, endDate) => {
   let months = end.getMonth() - start.getMonth();
 
   if (months < 0) {
-    years--;
+    years -= 1;
     months += 12;
   }
 
@@ -93,13 +91,14 @@ const Hero = () => {
             Work Experience
           </h2>
           <div className="space-y-0">
-            {sortedWork.map((job, index) => (
-              <div key={index} className="relative pl-8 group">
+            {sortedWork.map((job, idx) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <div key={`${job.name}-${idx}`} className="relative pl-8 group">
                 {/* Timeline dot */}
                 <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full z-10 border-2 border-white/20 bg-[#0A0A0A]" />
 
                 {/* Connector line to next item */}
-                {index < sortedWork.length - 1 && (
+                {idx < sortedWork.length - 1 && (
                   <div className="absolute left-[7px] top-4 -bottom-1.5 w-[2px] bg-white/10" />
                 )}
 

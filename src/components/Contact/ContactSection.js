@@ -4,18 +4,18 @@ import contactData from '../../data/contact';
 
 const ContactSection = () => {
   const iconMap = {
-    'Github': Github,
-    'Email': Mail,
-    'LinkedIn': Linkedin,
+    Github,
+    Email: Mail,
+    LinkedIn: Linkedin,
   };
 
   // Define order: LinkedIn, Email, Github
   const order = ['LinkedIn', 'Email', 'Github'];
 
   const contactMethods = order
-    .map(label => contactData.find(contact => contact.label === label))
-    .filter(contact => contact && iconMap[contact.label])
-    .map(contact => ({
+    .map((label) => contactData.find((contact) => contact.label === label))
+    .filter((contact) => contact && iconMap[contact.label])
+    .map((contact) => ({
       icon: iconMap[contact.label],
       label: contact.label,
       href: contact.link,

@@ -24,7 +24,7 @@ describe('Portfolio App', () => {
     });
 
     it('renders the tagline', () => {
-      expect(screen.getByText(/MS Computer Engineering/)).toBeInTheDocument();
+      expect(screen.getByText(/Software Engineer ·/)).toBeInTheDocument();
     });
 
     it('renders work experience section', () => {
@@ -70,7 +70,7 @@ describe('Portfolio App', () => {
     it('renders contact methods', () => {
       // Contact section has LinkedIn, Email, Github labels
       const contactLabels = screen.getAllByRole('heading', { level: 3 });
-      const labelTexts = contactLabels.map(h => h.textContent);
+      const labelTexts = contactLabels.map((h) => h.textContent);
 
       expect(labelTexts).toContain('LinkedIn');
       expect(labelTexts).toContain('Email');

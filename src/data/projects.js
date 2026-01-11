@@ -44,7 +44,7 @@ const projects = [
     tags: ['Python', 'CARLA', 'LiDAR', 'Autonomous Driving'],
     category: 'ml',
     date: '2024-12-31',
-  }
+  },
 ];
 
 export default projects;

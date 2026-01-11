@@ -28,7 +28,7 @@ const work = [
     endDate: '2025-07-10',
     summary: '3D urban design platform integrating Cesium and AI-assisted rendering for architects and planners.',
   },
-    {
+  {
     name: 'ESRI',
     position: 'Product Engineer',
     url: 'https://developers.arcgis.com/qt/',
