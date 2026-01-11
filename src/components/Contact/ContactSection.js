@@ -9,12 +9,15 @@ const ContactSection = () => {
     'LinkedIn': Linkedin,
   };
 
-  const contactMethods = contactData
-    .filter(contact => iconMap[contact.label])
+  // Define order: LinkedIn, Email, Github
+  const order = ['LinkedIn', 'Email', 'Github'];
+
+  const contactMethods = order
+    .map(label => contactData.find(contact => contact.label === label))
+    .filter(contact => contact && iconMap[contact.label])
     .map(contact => ({
       icon: iconMap[contact.label],
       label: contact.label,
-      value: contact.link.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, ''),
       href: contact.link,
     }));
 
@@ -25,7 +28,7 @@ const ContactSection = () => {
           Get In Touch
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {contactMethods.map(({ icon: Icon, label, value, href }) => (
+          {contactMethods.map(({ icon: Icon, label, href }) => (
             <a
               key={label}
               href={href}
@@ -34,12 +37,7 @@ const ContactSection = () => {
               className="glass-card p-6 flex flex-col items-center text-center gap-4 group"
             >
               <Icon className="h-8 w-8 text-[#737373] group-hover:text-indigo-400 transition-colors" />
-              <div>
-                <h3 className="font-semibold text-white mb-1">{label}</h3>
-                <span className="text-sm text-[#A3A3A3] group-hover:text-white transition-colors">
-                  {value}
-                </span>
-              </div>
+              <h3 className="font-semibold text-white group-hover:text-indigo-400 transition-colors">{label}</h3>
             </a>
           ))}
         </div>

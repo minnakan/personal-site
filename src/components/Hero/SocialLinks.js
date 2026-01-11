@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button';
 
 const SocialLinks = () => {
   const socials = [
-    { icon: Github, href: 'https://github.com/minnakan', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/minnakan-seral', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:minnakanseral@gmail.com', label: 'Email' },
+    { icon: Github, href: 'https://github.com/minnakan', label: 'GitHub' },
   ];
 
   return (

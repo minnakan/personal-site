@@ -9,6 +9,25 @@ const formatDate = (dateString) => {
   return `${month} ${year}`;
 };
 
+const calculateDuration = (startDate, endDate) => {
+  const start = new Date(startDate);
+  const end = endDate ? new Date(endDate) : new Date();
+
+  let years = end.getFullYear() - start.getFullYear();
+  let months = end.getMonth() - start.getMonth();
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  const parts = [];
+  if (years > 0) parts.push(`${years} yr${years > 1 ? 's' : ''}`);
+  if (months > 0) parts.push(`${months} mo${months > 1 ? 's' : ''}`);
+
+  return parts.length > 0 ? parts.join(' ') : '< 1 mo';
+};
+
 const Hero = () => {
   const sortedWork = [...work].sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
 
@@ -34,26 +53,45 @@ const Hero = () => {
           <SocialLinks />
         </div>
 
-        {/* Right Column: Work Experience Card */}
+        {/* Right Column: Work Experience Timeline */}
         <div className="glass-card p-6 md:p-8 md:w-1/2">
-          <h2 className="text-xs font-semibold tracking-widest uppercase text-[#737373] mb-6">
+          <h2 className="text-xs font-semibold tracking-widest uppercase text-[#A3A3A3] mb-6">
             Work Experience
           </h2>
-          <div className="space-y-5">
+          <div className="space-y-0">
             {sortedWork.map((job, index) => (
-              <div key={index} className="border-l-2 border-white/20 pl-4 hover:border-indigo-500/50 transition-colors">
-                <h3 className="font-semibold text-white">{job.position}</h3>
-                <a
-                  href={job.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-[#A3A3A3] hover:text-white transition-colors"
-                >
-                  {job.name}
-                </a>
-                <p className="text-xs text-[#737373] mt-1">
-                  {formatDate(job.startDate)} - {job.endDate ? formatDate(job.endDate) : 'Present'}
-                </p>
+              <div key={index} className="relative pl-8 group">
+                {/* Timeline dot */}
+                <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full z-10 border-2 border-white/20 bg-[#0A0A0A]" />
+
+                {/* Connector line to next item */}
+                {index < sortedWork.length - 1 && (
+                  <div className="absolute left-[7px] top-4 -bottom-1.5 w-[2px] bg-white/10" />
+                )}
+
+                <div className="pb-6">
+                  <h3 className="font-semibold text-white">
+                    {job.position}
+                  </h3>
+                  <a
+                    href={job.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-[#A3A3A3] hover:text-white transition-colors"
+                  >
+                    {job.name}
+                  </a>
+                  <p className="text-xs text-[#8B8B8B] mt-1">
+                    {formatDate(job.startDate)} - {job.endDate ? formatDate(job.endDate) : 'Present'}
+                    <span className="ml-2 text-[#6B6B6B]">·</span>
+                    <span className="ml-2 text-indigo-400">{calculateDuration(job.startDate, job.endDate)}</span>
+                  </p>
+                  {job.summary && (
+                    <p className="text-xs text-[#A3A3A3] mt-2 leading-relaxed">
+                      {job.summary}
+                    </p>
+                  )}
+                </div>
               </div>
             ))}
           </div>
