@@ -1,6 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SocialLinks from './SocialLinks';
 import work from '../../data/resume/work';
+
+const skills = ['Unreal Engine', 'Unity', 'C++', 'Machine Learning', 'Computer Graphics', 'Qt Framework', 'GIS'];
+
+const useTypewriter = (words, typingSpeed = 100, deletingSpeed = 50, pauseDuration = 2000) => {
+  const [displayText, setDisplayText] = useState('');
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentWord = words[wordIndex];
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (displayText.length < currentWord.length) {
+          setDisplayText(currentWord.slice(0, displayText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), pauseDuration);
+        }
+      } else {
+        if (displayText.length > 0) {
+          setDisplayText(currentWord.slice(0, displayText.length - 1));
+        } else {
+          setIsDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+        }
+      }
+    }, isDeleting ? deletingSpeed : typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, pauseDuration]);
+
+  return displayText;
+};
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -30,6 +63,7 @@ const calculateDuration = (startDate, endDate) => {
 
 const Hero = () => {
   const sortedWork = [...work].sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+  const typedSkill = useTypewriter(skills);
 
   return (
     <section className="min-h-[70vh] flex items-center px-6 md:px-12 py-20">
@@ -47,7 +81,7 @@ const Hero = () => {
               Minnakan Seral
             </h1>
             <p className="text-lg md:text-xl text-[#A3A3A3]">
-              MS Computer Engineering | Unreal Engine | Qt
+              Software Engineer · <span className="text-indigo-400">{typedSkill}</span><span className="animate-pulse">|</span>
             </p>
           </div>
           <SocialLinks />

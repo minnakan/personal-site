@@ -3,105 +3,78 @@
  */
 
 import '@testing-library/jest-dom';
-import '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { act } from 'react-dom/test-utils';
 import App from '../App';
 
-describe('renders the app', () => {
-  // mocks the fetch API used on the stats page and the about page.
-  const jsonMock = jest.fn(() => Promise.resolve({}));
-  const textMock = jest.fn(() => Promise.resolve(''));
-  global.fetch = jest.fn(() => Promise.resolve({
-    json: jsonMock,
-    text: textMock,
-  }));
-  // mocks the scrollTo API used when navigating to a new page.
-  window.scrollTo = jest.fn();
+// Mock Google Analytics
+jest.mock('../utils/analytics', () => ({
+  initGA: jest.fn(),
+  trackPageView: jest.fn(),
+}));
 
-  let container;
+describe('Portfolio App', () => {
+  beforeEach(() => {
+    render(<App />);
+  });
 
-  beforeEach(async () => {
-    container = document.createElement('div');
-    document.body.appendChild(container);
-    await act(async () => {
-      await ReactDOM.createRoot(container).render(<App />);
+  describe('Hero Section', () => {
+    it('renders the name', () => {
+      expect(screen.getByText('Minnakan Seral')).toBeInTheDocument();
+    });
+
+    it('renders the tagline', () => {
+      expect(screen.getByText(/MS Computer Engineering/)).toBeInTheDocument();
+    });
+
+    it('renders work experience section', () => {
+      expect(screen.getByText('Work Experience')).toBeInTheDocument();
+    });
+
+    it('renders current job', () => {
+      expect(screen.getByText('ESRI')).toBeInTheDocument();
+      expect(screen.getByText('Product Engineer')).toBeInTheDocument();
+    });
+
+    it('renders social links', () => {
+      const linkedinLinks = screen.getAllByRole('link', { name: /linkedin/i });
+      const emailLinks = screen.getAllByRole('link', { name: /email/i });
+      const githubLinks = screen.getAllByRole('link', { name: /github/i });
+
+      expect(linkedinLinks.length).toBeGreaterThan(0);
+      expect(emailLinks.length).toBeGreaterThan(0);
+      expect(githubLinks.length).toBeGreaterThan(0);
     });
   });
 
-  afterEach(() => {
-    document.body.removeChild(container);
-    container = null;
-    jest.clearAllMocks();
-  });
-
-  const waitForRouteChange = () => {
-    setTimeout(() => {}, 0);
-    return new Promise((resolve) => { setTimeout(resolve, 0); });
-  };
-
-  it('should render the app', async () => {
-    expect(document.body).toBeInTheDocument();
-  });
-
-  it('should render the title', async () => {
-    expect(document.title).toBe('Minnakan Seral'); // Changed to single quotes
-  });
-
-  it('can navigate to /resume', async () => {
-    expect.assertions(3); // Adjusted the number of assertions
-    const aboutLink = document.querySelector(
-      '#header > nav > ul > li:nth-child(1) > a',
-    );
-    expect(aboutLink).toBeInTheDocument();
-    await act(async () => {
-      await aboutLink.click();
-      await waitForRouteChange();
+  describe('Projects Section', () => {
+    it('renders the section title', () => {
+      expect(screen.getByText('Project Showcase')).toBeInTheDocument();
     });
-    expect(document.title).toContain('Resume');
-    expect(window.location.pathname).toBe('/resume');
+
+    it('renders project cards', () => {
+      // Check for at least one project
+      expect(screen.getByText(/Position Based Fluids/)).toBeInTheDocument();
+    });
+
+    it('renders project tags', () => {
+      expect(screen.getAllByText('C++').length).toBeGreaterThan(0);
+    });
   });
 
-  it('can navigate to /playground', async () => {
-    expect.assertions(3);
-    const resumeLink = document.querySelector(
-      '#header > nav > ul > li:nth-child(2) > a',
-    );
-    expect(resumeLink).toBeInTheDocument();
-    await act(async () => {
-      await resumeLink.click();
-      await waitForRouteChange();
+  describe('Contact Section', () => {
+    it('renders the section title', () => {
+      expect(screen.getByText('Get In Touch')).toBeInTheDocument();
     });
-    expect(document.title).toContain('Playground |');
-    expect(window.location.pathname).toBe('/playground');
-  });
 
-  it('can navigate to /projects', async () => {
-    expect.assertions(3);
-    const contactLink = document.querySelector(
-      '#header > nav > ul > li:nth-child(3) > a',
-    );
-    expect(contactLink).toBeInTheDocument();
-    await act(async () => {
-      await contactLink.click();
-      await waitForRouteChange();
-    });
-    expect(document.title).toContain('Projects |');
-    expect(window.location.pathname).toBe('/projects');
-  });
+    it('renders contact methods', () => {
+      // Contact section has LinkedIn, Email, Github labels
+      const contactLabels = screen.getAllByRole('heading', { level: 3 });
+      const labelTexts = contactLabels.map(h => h.textContent);
 
-  it('can navigate to /contact', async () => {
-    expect.assertions(3); // Adjusted the number of assertions
-    const contactLink = document.querySelector(
-      '#header > nav > ul > li:nth-child(4) > a',
-    );
-    expect(contactLink).toBeInTheDocument();
-    await act(async () => {
-      await contactLink.click();
-      await waitForRouteChange();
+      expect(labelTexts).toContain('LinkedIn');
+      expect(labelTexts).toContain('Email');
+      expect(labelTexts).toContain('Github');
     });
-    expect(document.title).toContain('Contact |');
-    expect(window.location.pathname).toBe('/contact');
   });
 });
