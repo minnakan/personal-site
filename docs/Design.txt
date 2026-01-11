@@ -1,0 +1,130 @@
+# Portfolio Design System: "The Deep Void"
+
+**Version:** 1.2  
+**Theme:** Ultra-Dark Minimalist  
+**Stack:** Next.js, Tailwind CSS, shadcn/ui, Lucide Icons  
+**Visual Style:** High Contrast, Technical, Border-heavy
+
+---
+
+## 1. Aesthetic & Color Palette
+We are moving away from soft dark modes to a **Deep Void** aesthetic. This minimizes background noise and maximizes content legibility using pure blacks and deep zincs.
+
+### The Palette (Tailwind Mapping)
+| Surface Layer | Class | Hex Approx | Description |
+| :--- | :--- | :--- | :--- |
+| **Background** | `bg-neutral-950` or `bg-black` | `#0a0a0a` | The main canvas. Deepest dark. |
+| **Surface (Cards)** | `bg-neutral-900/50` | `#171717` | Semi-transparent layers for content. |
+| **Border (Subtle)** | `border-neutral-800` | `#262626` | Structural dividers. |
+| **Border (Active)** | `border-neutral-600` | `#525252` | Hover states. |
+| **Text (Primary)** | `text-neutral-50` | `#fafafa` | Almost pure white for headings. |
+| **Text (Muted)** | `text-neutral-400` | `#a3a3a3` | Grey for secondary text. |
+
+### Visual Effects
+* **Glassmorphism:** Use `backdrop-blur-sm` on the Work Experience and Project cards to let the dark background bleed through slightly.
+* **Glow:** Use subtle colored shadows on hover (e.g., `shadow-indigo-500/20`).
+
+---
+
+## 2. Layout Structure
+
+### A. The Split Hero (Top Fold)
+**Container:** `min-h-[60vh] flex flex-col md:flex-row gap-12 items-center justify-center py-20`
+
+#### Left Column: Identity & Socials
+* **Avatar:** `h-40 w-40 rounded-full border-2 border-neutral-800`.
+* **Typography:**
+    * `h1`: **Name** (Text-5xl, Tracking-tighter, Bold).
+    * `p`: **Bio** (Text-lg, text-neutral-400, max-w-md).
+* **Socials (Integrated):**
+    * Placed directly below the Bio.
+    * **Component:** `div.flex.gap-4` containing Icon Buttons.
+    * **Style:** `Button variant="ghost"` with `text-neutral-400 hover:text-white hover:bg-neutral-800`.
+
+#### Right Column: Work Experience Panel
+* **Container:** `Card` component.
+* **Style:** `bg-neutral-900/20 border border-neutral-800`.
+* **Content:**
+    * Header: "Work Experience" (Small caps, tracking wide).
+    * List: Vertical stack of roles.
+    * **Typography:** Role title in White, Company/Date in neutral-500.
+
+---
+
+## 3. The Projects Section (Deep Dive)
+
+This section sits below the fold. It uses a grid layout to showcase case studies or repositories.
+
+**Grid Layout:** `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-24`
+
+### Project Card Anatomy
+Each project is a self-contained interactive `Card` component.
+
+#### 1. The Card Container
+* **Base Style:** `group relative overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900/30`.
+* **Hover Effect:** `hover:border-neutral-600 transition-all duration-300`.
+
+#### 2. The Preview Image (Top Half)
+* **Component:** `AspectRatio ratio={16/9}`.
+* **Styling:** * The image should have a grayscale filter by default to maintain the "Dark/Void" theme, scaling to color on hover.
+    * **Code:** `grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 object-cover`.
+
+#### 3. Content Area (Bottom Half)
+* **Padding:** `p-6`
+* **Title:** `h3` (`font-semibold text-neutral-100`).
+* **Description:** `p` (`text-sm text-neutral-400 line-clamp-2` - limits text to 2 lines).
+
+#### 4. The Tech Stack (Footer)
+* **Placement:** Below the description.
+* **Component:** A flex row of `Badge` components.
+* **Style:** `Badge variant="outline"` (`border-neutral-700 text-neutral-300 text-[10px]`).
+
+#### 5. Action Links (Hover Only)
+* *Option A (Always visible):* A "View Project" button in the footer.
+* *Option B (Cleaner):* An icon link (ExternalLink icon) that appears in the top-right corner of the image on hover.
+
+---
+
+## 4. Implementation Snippets (React/Shadcn)
+
+### The Project Card Component
+```jsx
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { MoveUpRight } from "lucide-react"
+
+export function ProjectCard({ project }) {
+  return (
+    <Card className="group flex flex-col justify-between bg-neutral-900/20 border-neutral-800 hover:border-neutral-600 transition-colors duration-300">
+      
+      {/* Image Area */}
+      <div className="relative aspect-video overflow-hidden rounded-t-xl bg-neutral-900">
+        <img 
+          src={project.image} 
+          alt={project.title} 
+          className="h-full w-full object-cover grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105"
+        />
+      </div>
+
+      {/* Content */}
+      <CardHeader>
+        <div className="flex justify-between items-start">
+            <h3 className="text-xl font-bold text-neutral-100">{project.title}</h3>
+            <MoveUpRight className="w-4 h-4 text-neutral-500 group-hover:text-white transition-colors" />
+        </div>
+        <p className="text-sm text-neutral-400 leading-relaxed">
+          {project.description}
+        </p>
+      </CardHeader>
+
+      {/* Tech Stack */}
+      <CardFooter className="flex gap-2 flex-wrap">
+        {project.tags.map((tag) => (
+          <Badge key={tag} variant="outline" className="border-neutral-700 text-neutral-400">
+            {tag}
+          </Badge>
+        ))}
+      </CardFooter>
+    </Card>
+  )
+}
