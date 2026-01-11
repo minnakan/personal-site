@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import SocialLinks from './SocialLinks';
 import work from '../../data/resume/work';
 
@@ -14,53 +13,51 @@ const Hero = () => {
   const sortedWork = [...work].sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
 
   return (
-    <section className="min-h-[60vh] flex items-center justify-center px-4 py-20">
-      <div className="flex flex-col md:flex-row gap-12 items-center justify-center max-w-7xl w-full">
+    <section className="min-h-[70vh] flex items-center px-6 md:px-12 py-20">
+      <div className="flex flex-col md:flex-row gap-16 md:gap-24 items-start max-w-6xl w-full mx-auto">
 
         {/* Left Column: Identity & Socials */}
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-start gap-6 md:w-1/2">
           <img
             src="/images/me.jpg"
             alt="Minnakan Seral"
-            className="h-40 w-40 rounded-full border-2 border-neutral-800 object-cover"
+            className="h-32 w-32 md:h-40 md:w-40 rounded-full object-cover ring-2 ring-white/20"
           />
-          <div className="flex flex-col gap-2 text-center max-w-md">
-            <h1 className="text-5xl font-bold tracking-tighter text-neutral-50">
+          <div className="flex flex-col gap-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
               Minnakan Seral
             </h1>
-            <p className="text-lg text-neutral-400">
+            <p className="text-lg md:text-xl text-[#A3A3A3]">
               MS Computer Engineering | Unreal Engine | Qt
             </p>
           </div>
           <SocialLinks />
         </div>
 
-        {/* Right Column: Work Experience Panel */}
-        <Card className="bg-neutral-900/20 border border-neutral-800 backdrop-blur-sm">
-          <CardHeader>
-            <h2 className="text-sm font-semibold tracking-widest uppercase text-neutral-400">
-              Work Experience
-            </h2>
-          </CardHeader>
-          <CardContent className="space-y-4">
+        {/* Right Column: Work Experience Card */}
+        <div className="glass-card p-6 md:p-8 md:w-1/2">
+          <h2 className="text-xs font-semibold tracking-widest uppercase text-[#737373] mb-6">
+            Work Experience
+          </h2>
+          <div className="space-y-5">
             {sortedWork.map((job, index) => (
-              <div key={index} className="border-l-2 border-neutral-700 pl-4">
+              <div key={index} className="border-l-2 border-white/20 pl-4 hover:border-indigo-500/50 transition-colors">
                 <h3 className="font-semibold text-white">{job.position}</h3>
                 <a
                   href={job.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-neutral-500 hover:text-neutral-300 transition-colors"
+                  className="text-sm text-[#A3A3A3] hover:text-white transition-colors"
                 >
                   {job.name}
                 </a>
-                <p className="text-xs text-neutral-500">
+                <p className="text-xs text-[#737373] mt-1">
                   {formatDate(job.startDate)} - {job.endDate ? formatDate(job.endDate) : 'Present'}
                 </p>
               </div>
             ))}
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </section>
   );

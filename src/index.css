@@ -4,35 +4,65 @@
 
 @layer base {
   :root {
-    /* Deep Void Palette - Default to dark theme */
-    --background: 0 0% 4%;        /* neutral-950 / #0a0a0a */
-    --foreground: 0 0% 98%;        /* neutral-50 / #fafafa */
-    --card: 0 0% 9%;               /* neutral-900/50 */
+    /* Dark Theme - Near Black Background */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 4%;
+    --popover: 0 0% 6%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 15%;         /* neutral-800 */
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 64%;  /* neutral-400 */
-    --accent: 239 84% 67%;         /* indigo-500 for accents */
+    --muted-foreground: 0 0% 64%;
+    --accent: 239 84% 67%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 84% 60%;
+    --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 15%;            /* neutral-800 */
+    --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 0 0% 32%;              /* neutral-600 */
+    --ring: 239 84% 67%;
     --radius: 0.75rem;
-  }
-}
 
-@layer base {
+    /* Chart colors */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
   * {
     @apply border-border;
   }
+
+  html {
+    background-color: #0A0A0A;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground antialiased;
+    background-color: #0A0A0A;
+    min-height: 100vh;
+  }
+}
+
+/* Glass Card System */
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
   }
 }

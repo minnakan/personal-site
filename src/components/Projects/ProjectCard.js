@@ -1,6 +1,4 @@
 import React from 'react';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { MoveUpRight } from 'lucide-react';
 
 const ProjectCard = ({ project }) => {
@@ -9,45 +7,42 @@ const ProjectCard = ({ project }) => {
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="block h-full"
+      className="block h-full group"
     >
-      <Card className="group h-full flex flex-col justify-between bg-neutral-900/20 border-neutral-800 hover:border-neutral-600 transition-colors duration-300">
-
+      <div className="glass-card h-full flex flex-col overflow-hidden">
         {/* Image Area */}
-        <div className="relative aspect-video overflow-hidden rounded-t-xl bg-neutral-900">
+        <div className="relative aspect-video overflow-hidden bg-black/50">
           <img
             src={project.image}
             alt={project.title}
-            className="h-full w-full object-cover grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105"
+            className="h-full w-full object-cover saturate-50 brightness-75 group-hover:saturate-100 group-hover:brightness-100 transition-all duration-500 transform group-hover:scale-105"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <MoveUpRight className="absolute top-4 right-4 w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-all duration-300" />
         </div>
 
         {/* Content */}
-        <CardHeader>
-          <div className="flex justify-between items-start gap-2">
-            <h3 className="text-xl font-bold text-neutral-100 group-hover:text-white transition-colors">
-              {project.title}
-            </h3>
-            <MoveUpRight className="w-4 h-4 text-neutral-500 group-hover:text-white transition-colors flex-shrink-0" />
-          </div>
-          <p className="text-sm text-neutral-400 leading-relaxed mt-2">
+        <div className="flex flex-col flex-grow p-5">
+          <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-sm text-[#A3A3A3] leading-relaxed line-clamp-2 mb-4">
             {project.subtitle || project.description}
           </p>
-        </CardHeader>
 
-        {/* Tech Stack */}
-        <CardFooter className="flex gap-2 flex-wrap mt-auto">
-          {project.tags.map((tag) => (
-            <Badge
-              key={tag}
-              variant="outline"
-              className="border-neutral-700 text-neutral-400 text-[10px]"
-            >
-              {tag}
-            </Badge>
-          ))}
-        </CardFooter>
-      </Card>
+          {/* Tech Stack */}
+          <div className="flex gap-2 flex-wrap mt-auto">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-0.5 text-[10px] font-medium text-[#A3A3A3] border border-white/10 rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
     </a>
   );
 };
