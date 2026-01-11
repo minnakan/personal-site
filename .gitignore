@@ -47,3 +47,6 @@ build/
 
 # Nohup
 nohup.out
+
+# Claude Code local settings
+.claude/

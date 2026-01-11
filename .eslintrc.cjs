@@ -9,6 +9,12 @@ module.exports = {
   extends: 'airbnb',
   ignorePatterns: ['node_modules/', 'build/'],
   parser: '@babel/eslint-parser',
+  parserOptions: {
+    requireConfigFile: false,
+    babelOptions: {
+      presets: ['@babel/preset-react'],
+    },
+  },
   plugins: ['react'],
   rules: {
     'jsx-a11y/anchor-is-valid': [
@@ -53,4 +59,12 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['vite.config.js', 'jest.config.cjs'],
+      rules: {
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+      },
+    },
+  ],
 };

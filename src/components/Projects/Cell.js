@@ -14,7 +14,7 @@ const Cell = ({ data }) => (
         </time>
       </header>
       <a href={data.link} className="image">
-        <img src={`${process.env.PUBLIC_URL}${data.image}`} alt={data.title} />
+        <img src={data.image} alt={data.title} />
       </a>
       <div className="description">
         <p>{data.desc}</p>

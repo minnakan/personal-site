@@ -13,8 +13,6 @@ import Main from './layouts/Main'; // fallback for lazy pages
 import './static/css/main.scss'; // All of our styles
 import { initGA, trackPageView } from './utils/analytics';
 
-const { PUBLIC_URL } = process.env;
-
 // Initialize GA4 with your measurement ID
 initGA('G-6TS1GTF36E'); // Replace with your actual GA4 measurement ID
 
@@ -39,7 +37,7 @@ const Projects = lazy(() => import('./pages/Projects'));
 const Resume = lazy(() => import('./pages/Resume'));
 
 const App = () => (
-  <BrowserRouter basename={PUBLIC_URL}>
+  <BrowserRouter>
     <PageTracker />
     <Suspense fallback={<Main />}>
       <Routes>
